@@ -1,4 +1,5 @@
 import scrollNoThrottle from '~/scroll-event-no-throttle';
+import scrollWithThrottle from '~/scroll-event-with-throttle';
 
 export const setup = () => {
     const rootNode = document.getElementById('root');
@@ -17,7 +18,7 @@ export const setup = () => {
         link.textContent = label;
         link.addEventListener('click', event => {
             event.preventDefault();
-            scrollNoThrottle.call(null);
+            handler.call(null);
             history.pushState({}, label, href);
             return false;
         });
@@ -27,6 +28,7 @@ export const setup = () => {
     }
 
     addLink('Scroll event with no throttle', scrollNoThrottle);
+    addLink('Scroll event with throttle', scrollWithThrottle);
 
     rootNode.appendChild(links);
 

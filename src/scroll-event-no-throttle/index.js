@@ -1,7 +1,6 @@
 import { setup } from '~/scene';
 
 export default () => {
-
     const nodes = setup();
 
     document.addEventListener('scroll', () => {
@@ -10,5 +9,4 @@ export default () => {
             node.style.transform = `translateX(-${y}px)`
         );
     });
-
 }
