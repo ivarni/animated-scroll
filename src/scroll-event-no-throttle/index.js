@@ -1,4 +1,8 @@
-export default nodes => {
+import { setup } from '~/scene';
+
+export default () => {
+
+    const nodes = setup();
 
     document.addEventListener('scroll', () => {
         const y = window.scrollY;
