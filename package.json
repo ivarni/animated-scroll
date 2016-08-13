@@ -1,0 +1,28 @@
+{
+  "name": "animated-scroll",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "hjs-dev-server",
+    "dist": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivarni/animated-scroll.git"
+  },
+  "author": "Ivar Nilsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivarni/animated-scroll/issues"
+  },
+  "homepage": "https://github.com/ivarni/animated-scroll#readme",
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-root-import": "^4.0.1",
+    "hjs-webpack": "^8.3.0"
+  }
+}
