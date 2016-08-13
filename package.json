@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "npm run build",
+    "heroku-postbuild": "npm run dist",
     "start": "hjs-dev-server",
     "dist": "webpack"
   },
