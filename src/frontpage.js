@@ -1,5 +1,6 @@
 import scrollNoThrottle from '~/scroll-event-no-throttle';
 import scrollWithThrottle from '~/scroll-event-with-throttle';
+import requestAnimationFrame from '~/request-animation-frame';
 
 export const setup = () => {
     const rootNode = document.getElementById('root');
@@ -29,6 +30,7 @@ export const setup = () => {
 
     addLink('Scroll event with no throttle', scrollNoThrottle);
     addLink('Scroll event with throttle', scrollWithThrottle);
+    addLink('Request animation frame', requestAnimationFrame);
 
     rootNode.appendChild(links);
 
