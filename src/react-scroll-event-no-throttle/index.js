@@ -1,13 +1,13 @@
-import 'babel-polyfill';
-
-import React, { Component } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 
 import { setup } from '~/scene';
-import { setup as frontpage } from '~/frontpage';
-import { getScrollPosition } from '~/common';
+import {
+    getScrollPosition,
+    Scroller,
+} from '~/common';
 
-class Scroller extends Component {
+class UnthrottledScroller extends Scroller {
 
     constructor(props) {
         super(props);
@@ -19,7 +19,7 @@ class Scroller extends Component {
         document.addEventListener('scroll', this.onScroll);
     }
 
-    componentWillDismount() {
+    componentWillUnmount() {
         document.removeEventListener('scroll', this.onScroll);
     }
 
@@ -27,45 +27,11 @@ class Scroller extends Component {
         const y = getScrollPosition();
         this.setState({ y });
     }
-
-    onBackLinkClick(event) {
-        event.preventDefault();
-        history.pushState({}, 'Scroll animations', '/');
-        frontpage();
-        return false;
-    }
-
-    render() {
-        const { y } = this.state;
-
-        return (
-            <div className="main">
-                <a
-                    className="back-link"
-                    href="/"
-                    onClick={this.onBackLinkClick}
-                >
-                    Back
-                </a>
-                {[1,2,3].map(index => (
-                    <div
-                        key={`node-${index}`}
-                        className={`appear-on-scroll appear-on-scroll--${index}`}
-                        style={{
-                            transform: `translateX(-${y}px`,
-                        }}
-                    />
-                ))}
-            </div>
-        );
-    }
-
 }
 
 export default () => {
-
     render(
-        <Scroller />,
+        <UnthrottledScroller />,
         document.getElementById('root')
     );
 }
