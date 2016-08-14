@@ -1,5 +1,5 @@
 export const getScrollPosition = () => {
-    return window.scrollY;
+    return window.pageYOffset || window.scrollY;
 }
 
 export const throttle = (handler, threshhold) => {
