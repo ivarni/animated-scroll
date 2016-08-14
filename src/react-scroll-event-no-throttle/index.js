@@ -5,6 +5,7 @@ import { render } from 'react-dom';
 
 import { setup } from '~/scene';
 import { setup as frontpage } from '~/frontpage';
+import { getScrollPosition } from '~/common';
 
 class Scroller extends Component {
 
@@ -23,7 +24,7 @@ class Scroller extends Component {
     }
 
     onScroll() {
-        const y = window.scrollY;
+        const y = getScrollPosition();
         this.setState({ y });
     }
 

@@ -1,22 +1,8 @@
 import { setup } from '~/scene';
-
-function throttle(handler, threshhold) {
-    let last;
-    let timeout;
-    return (...args) => {
-        const now = new Date().getTime();
-        if (last && now < last + threshhold) {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => {
-                last = now;
-                handler.apply(null, args);
-            }, threshhold);
-        } else {
-            last = now;
-            handler.apply(null, args);
-        }
-    }
-}
+import {
+    getScrollPosition,
+    throttle,
+} from '~/common';
 
 export default () => {
     start();
@@ -44,7 +30,7 @@ function start(timeout = 200) {
     rootNode.appendChild(button);
 
     document.addEventListener('scroll', throttle(() => {
-        const y = window.scrollY;
+        const y = getScrollPosition();
         nodes.forEach(node => {
             node.style.transform = `translateX(-${y}px`
         });
